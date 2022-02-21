@@ -1,0 +1,31 @@
+ID,Description,Test Case ID,Pre conditions,Steps to reproduce,Expected result,Severity
+BUG-1,Results are not sorted in descending order when the 'Computer name' table header is clicked,TC-7,"1. Web Browser
+2. Computer database URL
+3. At least two computers with different 'Computer name' must exist in the computers database","1. Open web browser
+2. Clear browser cache
+3. Navigate to http://computer-database.herokuapp.com/computers within the web browser
+4. Click on 'Computer name' table heading in the computers table",1. On clicking the 'Computer name' table heading the results do not get sorted in descending order ,2
+BUG-2,Web parameter tampering not handled on 'Edit computer' page ,TC-4a,1. TC2.1 must be run before this test,"1. Open web browser
+2. Clear browser cache
+3. Navigate to http://computer-database.herokuapp.com/computers/hello within the web browser","1. Web browser returns a heading of ""Bad Request"" with an error message stating ""For request 'GET /computers/hello' [Cannot parse parameter id as Long: For input string: ""hello""]""",2
+BUG-3,"""Application error"" when adding a new computer to the computer database with a computer name of over 10,000 characters",TC-2a,"1. Web Browser
+2. Computer database URL","1. Open web browser
+2. Navigate to http://computer-database.herokuapp.com/computers within the web browser
+3. Click on 'Add a new computer' button in the top right hand corner of the screen
+4. Copy BUG1.InputData.txt contents in to the 'computer name' field
+5. Click on 'Create this computer' button in the bottom left hand corner of the screen","1. On clicking 'Add a new computer' button the screen displays ""Application error""",1
+BUG-4,"""Application error"" when trying to filter computers in the computer database with a computer name of over 5,000 characters",TC-6,"1. Web Browser
+2. Computer database URL","1. Open web browser
+2. Clear browser cache
+3. Navigate to http://computer-database.herokuapp.com/computers within the web browser
+4. Copy BUG2.InputData.txt contents in to the 'Filter by computer name' input field in the top left hand corner of the screen
+5. Click on 'Filter by name' button in the top left hand corner of the screen","1. On clicking 'Filter by name' button the screen displays ""Application error""",1
+BUG-5,The same date is entered for introduced date and discontinued date,TC-4h,"1. Web Browser
+2. Computer database URL","1. Open web browser
+2. Navigate to http://computer-database.herokuapp.com/computers within the web browser
+3. Input ""Sample-Computer"" in the 'Filter by computer name' input field in the top left hand corner of the screen
+4. Click on 'Filter by name' button in the top left hand corner of the screen
+5. Click on the first computer name in the table which displays a list of added computers
+6. Input ""2021-10-02"" in the 'Introduced date' input field 
+7. Input ""2021-10-02"" in the 'Discontinued date' input field 
+8. Click on 'Save this computer' button in the bottom left hand corner of the screen",Add a new computer and enter the same date is entered for introduced date and discontinued date. No validation error showed for the same date.,2
